@@ -1,25 +1,12 @@
-import Hero from "@/components/sections/Hero";
-import About from "@/components/sections/About";
-import Perspective from "@/components/sections/Perspective";
-import MyStory from "@/components/sections/MyStory";
-import ForYou from "@/components/sections/ForYou";
-import HowIWork from "@/components/sections/HowIWork";
-import Philosophy from "@/components/sections/Philosophy";
-import FinalCTA from "@/components/sections/FinalCTA";
-import Footer from "@/components/sections/Footer";
+import { client } from "@/tina/__generated__/client";
+import HomeClient from "./HomeClient";
 
-export default function Home() {
-  return (
-    <main>
-      <Hero />
-      <About />
-      <Perspective />
-      <MyStory />
-      <ForYou />
-      <HowIWork />
-      <Philosophy />
-      <FinalCTA />
-      <Footer />
-    </main>
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
+  const data = await client.queries.page(
+    { relativePath: "home.json" },
+    { fetchOptions: { cache: "no-store" } }
   );
+  return <HomeClient {...data} />;
 }

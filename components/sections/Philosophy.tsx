@@ -1,4 +1,17 @@
-export default function Philosophy() {
+"use client";
+
+import { tinaField } from "tinacms/dist/react";
+
+type PhilosophyData = {
+  heading: string;
+  col1p1: string;
+  pullquote: string;
+  col1p2: string;
+  col2p1: string;
+  col2p2: string;
+};
+
+export default function Philosophy({ data }: { data: PhilosophyData }) {
   return (
     <section className="philosophy-section">
       <div className="philosophy-arc" aria-hidden="true">
@@ -17,36 +30,22 @@ export default function Philosophy() {
             <span className="philosophy-dot"></span>
             <span>THE PHILOSOPHY</span>
           </div>
-          <h2 className="philosophy-heading">
-            Start With the Life. Reverse Engineer the Business.
+          <h2 className="philosophy-heading" data-tina-field={tinaField(data, "heading")}>
+            {data.heading}
           </h2>
         </div>
         <div className="philosophy-divider"></div>
         <div className="philosophy-body">
           <div className="philosophy-col">
-            <p>
-              Most people start with tactics. Pick a niche. Run ads. Scale. They
-              build the machine first and hope the life comes later. It usually
-              doesn&apos;t.
+            <p data-tina-field={tinaField(data, "col1p1")}>{data.col1p1}</p>
+            <p className="philosophy-pullquote" data-tina-field={tinaField(data, "pullquote")}>
+              {data.pullquote}
             </p>
-            <p className="philosophy-pullquote">I work the other way.</p>
-            <p>
-              Start with the big, intangible idea. The life you actually want to
-              live. Where you want to wake up. Who you want next to you. How you
-              want your days to feel. That&apos;s the starting point.
-            </p>
+            <p data-tina-field={tinaField(data, "col1p2")}>{data.col1p2}</p>
           </div>
           <div className="philosophy-col">
-            <p>
-              Then we bring it down into something concrete. A business model
-              that supports it. Daily habits that sustain it. Relationships that
-              grow alongside it. From the abstract to the tangible. From the
-              vision to the reality.
-            </p>
-            <p>
-              That&apos;s not motivational talk. That&apos;s how I built my own life.
-              And it&apos;s the framework behind everything I teach.
-            </p>
+            <p data-tina-field={tinaField(data, "col2p1")}>{data.col2p1}</p>
+            <p data-tina-field={tinaField(data, "col2p2")}>{data.col2p2}</p>
           </div>
         </div>
       </div>

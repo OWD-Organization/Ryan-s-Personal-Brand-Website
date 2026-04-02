@@ -1,19 +1,27 @@
-export default function About() {
+"use client";
+
+import { tinaField } from "tinacms/dist/react";
+
+type AboutData = {
+  eyebrow: string;
+  heading: string;
+  sub: string;
+};
+
+export default function About({ data }: { data: AboutData }) {
   return (
     <section className="about-section">
       <div className="about-inner">
         <div className="about-eyebrow">
           <span className="about-dot"></span>
-          <span>WORK WITH ME</span>
+          <span data-tina-field={tinaField(data, "eyebrow")}>{data.eyebrow}</span>
         </div>
         <div className="about-content">
-          <h2 className="about-heading">
-            I help men in their 20s and 30s create location independent
-            businesses that provide real, consistent freedom.
+          <h2 className="about-heading" data-tina-field={tinaField(data, "heading")}>
+            {data.heading}
           </h2>
-          <p className="about-sub">
-            Not by grinding until you break. By designing a life worth
-            protecting and building a business around it.
+          <p className="about-sub" data-tina-field={tinaField(data, "sub")}>
+            {data.sub}
           </p>
         </div>
       </div>

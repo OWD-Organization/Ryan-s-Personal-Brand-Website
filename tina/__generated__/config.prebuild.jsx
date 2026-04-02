@@ -1,21 +1,18 @@
+// tina/config.ts
 import { defineConfig } from "tinacms";
-
-export default defineConfig({
-  branch:
-    process.env.GITHUB_BRANCH ||
-    process.env.VERCEL_GIT_COMMIT_REF ||
-    "main",
+var config_default = defineConfig({
+  branch: process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || "main",
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "",
   token: process.env.TINA_TOKEN || "",
   build: {
     outputFolder: "admin",
-    publicFolder: "public",
+    publicFolder: "public"
   },
   media: {
     tina: {
       mediaRoot: "uploads",
-      publicFolder: "public",
-    },
+      publicFolder: "public"
+    }
   },
   schema: {
     collections: [
@@ -27,8 +24,8 @@ export default defineConfig({
         ui: {
           router: ({ document }) => {
             if (document._sys.filename === "home") return "/";
-            return undefined;
-          },
+            return void 0;
+          }
         },
         fields: [
           // Hero
@@ -40,8 +37,8 @@ export default defineConfig({
               { type: "string", name: "tagline", label: "Tagline" },
               { type: "string", name: "headline", label: "Headline", ui: { component: "textarea" } },
               { type: "string", name: "ctaText", label: "CTA Button Text" },
-              { type: "string", name: "ctaSecondaryText", label: "Secondary CTA Text" },
-            ],
+              { type: "string", name: "ctaSecondaryText", label: "Secondary CTA Text" }
+            ]
           },
           // About
           {
@@ -51,8 +48,8 @@ export default defineConfig({
             fields: [
               { type: "string", name: "eyebrow", label: "Eyebrow" },
               { type: "string", name: "heading", label: "Heading", ui: { component: "textarea" } },
-              { type: "string", name: "sub", label: "Subtext", ui: { component: "textarea" } },
-            ],
+              { type: "string", name: "sub", label: "Subtext", ui: { component: "textarea" } }
+            ]
           },
           // Perspective
           {
@@ -68,11 +65,11 @@ export default defineConfig({
                 list: true,
                 ui: { itemProps: (item) => ({ label: item?.text?.slice(0, 40) }) },
                 fields: [
-                  { type: "string", name: "text", label: "Text", ui: { component: "textarea" } },
-                ],
+                  { type: "string", name: "text", label: "Text", ui: { component: "textarea" } }
+                ]
               },
-              { type: "string", name: "ctaText", label: "CTA Text" },
-            ],
+              { type: "string", name: "ctaText", label: "CTA Text" }
+            ]
           },
           // My Story
           {
@@ -89,12 +86,12 @@ export default defineConfig({
                 ui: { itemProps: (item) => ({ label: item?.label }) },
                 fields: [
                   { type: "string", name: "label", label: "Label" },
-                  { type: "string", name: "text", label: "Text", ui: { component: "textarea" } },
-                ],
+                  { type: "string", name: "text", label: "Text", ui: { component: "textarea" } }
+                ]
               },
               { type: "string", name: "bannerBody", label: "Banner Body", ui: { component: "textarea" } },
-              { type: "string", name: "bannerCtaText", label: "Banner CTA Text" },
-            ],
+              { type: "string", name: "bannerCtaText", label: "Banner CTA Text" }
+            ]
           },
           // For You
           {
@@ -110,12 +107,12 @@ export default defineConfig({
                 list: true,
                 ui: { itemProps: (item) => ({ label: item?.text?.slice(0, 40) }) },
                 fields: [
-                  { type: "string", name: "text", label: "Text", ui: { component: "textarea" } },
-                ],
+                  { type: "string", name: "text", label: "Text", ui: { component: "textarea" } }
+                ]
               },
               { type: "string", name: "contrastText", label: "Contrast Text", ui: { component: "textarea" } },
-              { type: "string", name: "ctaText", label: "CTA Text" },
-            ],
+              { type: "string", name: "ctaText", label: "CTA Text" }
+            ]
           },
           // How I Work
           {
@@ -132,11 +129,11 @@ export default defineConfig({
                 ui: { itemProps: (item) => ({ label: item?.title }) },
                 fields: [
                   { type: "string", name: "title", label: "Title" },
-                  { type: "string", name: "text", label: "Text", ui: { component: "textarea" } },
-                ],
+                  { type: "string", name: "text", label: "Text", ui: { component: "textarea" } }
+                ]
               },
-              { type: "string", name: "ctaText", label: "CTA Text" },
-            ],
+              { type: "string", name: "ctaText", label: "CTA Text" }
+            ]
           },
           // Philosophy
           {
@@ -149,8 +146,8 @@ export default defineConfig({
               { type: "string", name: "pullquote", label: "Pull Quote" },
               { type: "string", name: "col1p2", label: "Column 1 - Paragraph 2", ui: { component: "textarea" } },
               { type: "string", name: "col2p1", label: "Column 2 - Paragraph 1", ui: { component: "textarea" } },
-              { type: "string", name: "col2p2", label: "Column 2 - Paragraph 2", ui: { component: "textarea" } },
-            ],
+              { type: "string", name: "col2p2", label: "Column 2 - Paragraph 2", ui: { component: "textarea" } }
+            ]
           },
           // Final CTA
           {
@@ -161,11 +158,14 @@ export default defineConfig({
               { type: "string", name: "eyebrow", label: "Eyebrow" },
               { type: "string", name: "heading", label: "Heading", ui: { component: "textarea" } },
               { type: "string", name: "body", label: "Body Text", ui: { component: "textarea" } },
-              { type: "string", name: "ctaText", label: "CTA Button Text" },
-            ],
-          },
-        ],
-      },
-    ],
-  },
+              { type: "string", name: "ctaText", label: "CTA Button Text" }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 });
+export {
+  config_default as default
+};

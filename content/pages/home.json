@@ -1,3 +1,108 @@
 {
-  "headerText": "This is the official website of Ryan Kearney"
+  "hero": {
+    "tagline": "Coaching for men who want more than money",
+    "headline": "Build a Business That Supports the Life You Actually Want ",
+    "ctaText": "Work With Me",
+    "ctaSecondaryText": "See How It Works"
+  },
+  "about": {
+    "eyebrow": "WORK WITH ME",
+    "heading": "I help men in their 20s and 30s create location independent businesses that provide real, consistent freedom.",
+    "sub": "Not by grinding until you break. By designing a life worth protecting and building a business around it."
+  },
+  "perspective": {
+    "heading": "Information Is Everywhere. Perspective Isn't.",
+    "items": [
+      {
+        "text": "You can learn Google Ads from a chatbot. You can find Amazon strategies in a free YouTube video. Every marketing tactic you need is already out there, indexed and searchable. So why are you still stuck?"
+      },
+      {
+        "text": "Because information without perspective is noise. You don't need another course that teaches you what to do. You need someone who has already done it, consistently, and can show you what it actually looks like on the other side."
+      },
+      {
+        "text": "I'm not selling a secret formula. I'm offering something you can't Google: the lived experience of building a business that pays well, runs from anywhere, and still leaves room for the things that matter."
+      }
+    ],
+    "ctaText": "Learn more"
+  },
+  "mystory": {
+    "heading": "From Side Hustle to Location Independent Business",
+    "timeline": [
+      {
+        "label": "The Beginning",
+        "text": "I started by promoting services online through social media. Instagram, Facebook, YouTube. I learned what worked by doing it, not by reading about it."
+      },
+      {
+        "label": "The Pivot",
+        "text": "When COVID hit, I pivoted hard into e-commerce. While most people were scrambling, I found opportunity selling products on Amazon and through Google Ads. That season was devastating for a lot of people. For me, it became one of the most abundant and fruitful stretches of my career because I had the online skills to adapt."
+      },
+      {
+        "label": "The Agency",
+        "text": "Those skills opened doors. Business owners started asking for help. Freelance consulting turned into a full marketing agency offering Google Ads management, Amazon listing optimization, and conversion strategy."
+      },
+      {
+        "label": "The Growth",
+        "text": "About three years in, I expanded into local service businesses. Community members who needed help getting visible when foot traffic disappeared. When stimulus money started flowing, my clients were positioned to capture it. That's how the agency found its footing and has grown ever since."
+      }
+    ],
+    "bannerBody": "Through all of it, one thing stayed constant: I built this business to support my life, not replace it. And now I help other men do the same.",
+    "bannerCtaText": "Start Building Yours"
+  },
+  "foryou": {
+    "heading": "This Is For You If...",
+    "items": [
+      {
+        "text": "You're in your 20s or 30s and you want to build something real online"
+      },
+      {
+        "text": "You're done consuming free content that never adds up to a clear path"
+      },
+      {
+        "text": "You want consistent profit that supports your lifestyle, not a one-time spike"
+      },
+      {
+        "text": "Location independence matters to you. You want to work from Pittsburgh, Phoenix, or anywhere in between"
+      },
+      {
+        "text": "You care about your health, your relationships, and your quality of life as much as your income"
+      },
+      {
+        "text": "You want to learn from someone whose life you actually admire, not just someone who made money"
+      }
+    ],
+    "contrastText": "This is not a mastermind for established business owners. This is not a course on how to enter the marketing industry. This is personal, experience-driven coaching for men who want to build a business that fits the life they're designing.",
+    "ctaText": "Start Building Yours"
+  },
+  "howwork": {
+    "heading": "Three Steps to Start Building",
+    "steps": [
+      {
+        "title": "We Talk",
+        "text": "Book a call. Tell me where you are, where you want to go, and what's getting in the way. No pitch. Just a real conversation about whether we're a good fit."
+      },
+      {
+        "title": "We Map It Out",
+        "text": "I build a plan around your specific situation. Your skills, your goals, your lifestyle. Not a template. A path that makes sense for the business and the life you want to create."
+      },
+      {
+        "title": "We Build It Together",
+        "text": "You execute with my guidance, perspective, and accountability behind you. I've walked this road. I know where the potholes are. And I'll tell you what I wish someone had told me years ago."
+      }
+    ],
+    "ctaText": "Book Your Call"
+  },
+  "philosophy": {
+    "heading": "Start With the Life. Reverse Engineer the Business.",
+    "col1p1": "Most people start with tactics. Pick a niche. Run ads. Scale. They build the machine first and hope the life comes later. It usually doesn't.",
+    "pullquote": "I work the other way.",
+    "col1p2": "Start with the big, intangible idea. The life you actually want to live. Where you want to wake up. Who you want next to you. How you want your days to feel. That's the starting point.",
+    "col2p1": "Then we bring it down into something concrete. A business model that supports it. Daily habits that sustain it. Relationships that grow alongside it. From the abstract to the tangible. From the vision to the reality.",
+    "col2p2": "That's not motivational talk. That's how I built my own life. And it's the framework behind everything I teach."
+  },
+  "finalcta": {
+    "eyebrow": "LET'S TALK",
+    "heading": "Ready to Build a Life Worth Protecting?",
+    "body": "If you're tired of consuming and ready to start building, let's talk. One conversation is all it takes to know if this is the right path for you.",
+    "ctaText": "Book Your Call"
+  }
 }

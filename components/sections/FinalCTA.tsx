@@ -1,21 +1,30 @@
-export default function FinalCTA() {
+"use client";
+
+import { tinaField } from "tinacms/dist/react";
+
+type FinalCTAData = {
+  eyebrow: string;
+  heading: string;
+  body: string;
+  ctaText: string;
+};
+
+export default function FinalCTA({ data }: { data: FinalCTAData }) {
   return (
     <section className="finalcta-section">
       <div className="finalcta-content">
         <div className="finalcta-eyebrow">
           <span className="finalcta-dot"></span>
-          <span>LET&apos;S TALK</span>
+          <span data-tina-field={tinaField(data, "eyebrow")}>{data.eyebrow}</span>
         </div>
-        <h2 className="finalcta-heading">
-          Ready to Build a Life Worth Protecting?
+        <h2 className="finalcta-heading" data-tina-field={tinaField(data, "heading")}>
+          {data.heading}
         </h2>
-        <p className="finalcta-body">
-          If you&apos;re tired of consuming and ready to start building, let&apos;s
-          talk. One conversation is all it takes to know if this is the right
-          path for you.
+        <p className="finalcta-body" data-tina-field={tinaField(data, "body")}>
+          {data.body}
         </p>
-        <a href="#" className="finalcta-btn">
-          Book Your Call
+        <a href="#" className="finalcta-btn" data-tina-field={tinaField(data, "ctaText")}>
+          {data.ctaText}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -23,11 +32,7 @@ export default function FinalCTA() {
             stroke="currentColor"
             strokeWidth={2}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M17 8l4 4m0 0l-4 4m4-4H3"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
         </a>
       </div>

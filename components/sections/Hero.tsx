@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import { tinaField } from "tinacms/dist/react";
 
 const images = [
   { src: "/img/ryan-jana166939 (2).jpg", bgColor: "#C4785A" },
@@ -8,7 +9,14 @@ const images = [
   { src: "/img/ryan-jana167897.jpg", bgColor: "#C4785A" },
 ];
 
-export default function Hero() {
+type HeroData = {
+  tagline: string;
+  headline: string;
+  ctaText: string;
+  ctaSecondaryText: string;
+};
+
+export default function Hero({ data }: { data: HeroData }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [overlayActive, setOverlayActive] = useState(false);
   const [containerTransitioning, setContainerTransitioning] = useState(false);
@@ -57,7 +65,6 @@ export default function Hero() {
 
   return (
     <section className="hero">
-      {/* Decorative curved line */}
       <div className="decorative-line">
         <svg viewBox="0 0 400 400" fill="none">
           <path
@@ -69,30 +76,27 @@ export default function Hero() {
         </svg>
       </div>
 
-      {/* Logo */}
       <div className="logo">
         <h1>
           Ryan Kearney<sup></sup>
         </h1>
       </div>
 
-      {/* Main content */}
       <div className="hero-content">
-        {/* Left side - Text */}
         <div className="hero-text">
           <div className="hero-text-inner">
             <div className="tagline">
               <span className="tagline-dot"></span>
-              <span className="tagline-text">
-                Coaching for men who want more than money
+              <span className="tagline-text" data-tina-field={tinaField(data, "tagline")}>
+                {data.tagline}
               </span>
             </div>
-            <h1 className="headline">
-              Build a Business That Supports the Life You Actually Want
+            <h1 className="headline" data-tina-field={tinaField(data, "headline")}>
+              {data.headline}
             </h1>
             <div className="cta-group">
-              <a href="#" className="cta-button">
-                Work With Me
+              <a href="#" className="cta-button" data-tina-field={tinaField(data, "ctaText")}>
+                {data.ctaText}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -107,14 +111,13 @@ export default function Hero() {
                   />
                 </svg>
               </a>
-              <a href="#" className="cta-secondary">
-                See How It Works
+              <a href="#" className="cta-secondary" data-tina-field={tinaField(data, "ctaSecondaryText")}>
+                {data.ctaSecondaryText}
               </a>
             </div>
           </div>
         </div>
 
-        {/* Right side - Image grid */}
         <div className="hero-image-section">
           <div
             className={`image-container${containerTransitioning ? " transitioning" : ""}`}
@@ -126,7 +129,6 @@ export default function Hero() {
                   <img src={imageSrc} alt="Professional portrait" />
                 </div>
               </div>
-
               <div className={`grid-overlay${overlayActive ? " active" : ""}`}>
                 <div className="grid-cell" style={{ transitionDelay: "0ms" }}></div>
                 <div className="grid-cell" style={{ transitionDelay: "30ms" }}></div>
@@ -143,7 +145,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Pagination dots */}
       <div className="pagination">
         {images.map((_, index) => (
           <button
