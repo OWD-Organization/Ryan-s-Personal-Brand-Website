@@ -22,7 +22,7 @@ function openChat() {
   if (w.LC_API?.open_chat_window) { w.LC_API.open_chat_window(); return; }
 
   // Strategy 2: Click the orange bubble directly
-  const allElements = document.querySelectorAll<HTMLElement>("*");
+  const allElements = Array.from(document.querySelectorAll<HTMLElement>("*"));
   for (const el of allElements) {
     if (el.shadowRoot) {
       const btn = el.shadowRoot.querySelector<HTMLElement>("button, [role='button']");
@@ -32,7 +32,7 @@ function openChat() {
 
   // Strategy 3: Any button not part of the main site
   const siteSelectors = BUTTON_SELECTORS.split(", ");
-  const allButtons = document.querySelectorAll<HTMLElement>("button, [role='button']");
+  const allButtons = Array.from(document.querySelectorAll<HTMLElement>("button, [role='button']"));
   for (const btn of allButtons) {
     const isSiteBtn = siteSelectors.some(sel => btn.closest(sel));
     if (!isSiteBtn) { btn.click(); return; }
