@@ -14,49 +14,40 @@ const BUTTON_SELECTORS = [
 ].join(", ");
 
 function openChat() {
-  // Strategy 1: LeadConnector global API
   const w = window as any;
+
+  // Strategy 1: LeadConnector global API
   if (w.LeadConnector?.openWidget) { w.LeadConnector.openWidget(); return; }
   if (w.leadConnector?.open) { w.leadConnector.open(); return; }
   if (w.LC_API?.open_chat_window) { w.LC_API.open_chat_window(); return; }
 
-  // Strategy 2: Custom element with shadow DOM
-  const shadowHost = document.querySelector("lead-connector-chat-widget") as any;
-  if (shadowHost?.shadowRoot) {
-    const btn = shadowHost.shadowRoot.querySelector("button");
-    if (btn) { btn.click(); return; }
-  }
-
-  // Strategy 3: Regular DOM selectors
-  const directSelectors = [
-    "[data-widget-id] button",
-    ".lc-chat-bubble",
-    "[id*='chat'] button",
-    "[class*='chat-bubble']",
-    "[class*='chat-widget'] button",
-    "[id*='leadconnector']",
-  ];
-  for (const sel of directSelectors) {
-    const el = document.querySelector<HTMLElement>(sel);
-    if (el) { el.click(); return; }
-  }
-
-  // Strategy 4: postMessage to any LeadConnector iframe
-  document.querySelectorAll("iframe").forEach((iframe) => {
-    if (
-      iframe.src?.includes("leadconnectorhq") ||
-      iframe.src?.includes("chat-widget")
-    ) {
-      iframe.contentWindow?.postMessage({ type: "open" }, "*");
+  // Strategy 2: Click the orange bubble directly
+  const allElements = document.querySelectorAll<HTMLElement>("*");
+  for (const el of allElements) {
+    if (el.shadowRoot) {
+      const btn = el.shadowRoot.querySelector<HTMLElement>("button, [role='button']");
+      if (btn) { btn.click(); return; }
     }
-  });
+  }
+
+  // Strategy 3: Any button not part of the main site
+  const siteSelectors = BUTTON_SELECTORS.split(", ");
+  const allButtons = document.querySelectorAll<HTMLElement>("button, [role='button']");
+  for (const btn of allButtons) {
+    const isSiteBtn = siteSelectors.some(sel => btn.closest(sel));
+    if (!isSiteBtn) { btn.click(); return; }
+  }
+
+  console.log("[ChatTrigger] Could not find chat widget button");
 }
 
 export default function ChatTrigger() {
   useEffect(() => {
     const handleClick = (e: Event) => {
       const target = e.target as HTMLElement;
-      if (target.closest(BUTTON_SELECTORS)) {
+      const matched = target.closest(BUTTON_SELECTORS);
+      console.log("[ChatTrigger] click detected, matched:", matched);
+      if (matched) {
         e.preventDefault();
         openChat();
       }
