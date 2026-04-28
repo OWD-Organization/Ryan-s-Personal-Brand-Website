@@ -27,7 +27,7 @@ export default function HomeClient(props: {
       <Perspective data={p.perspective} />
       <MyStory data={p.mystory} />
       <ForYou data={p.foryou} />
-      <LifestyleAudit data={p.lifestyleaudit} />
+      {p.lifestyleaudit && <LifestyleAudit data={p.lifestyleaudit} />}
       <HowIWork data={p.howwork} />
       <Philosophy data={p.philosophy} />
       <FinalCTA data={p.finalcta} />

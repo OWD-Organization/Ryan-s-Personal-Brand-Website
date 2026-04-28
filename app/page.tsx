@@ -29,7 +29,6 @@ const pageQuery = `
     perspective { __typename heading items { __typename text } ctaText }
     mystory { __typename heading timeline { __typename label text } bannerBody bannerCtaText }
     foryou { __typename heading items { __typename text } contrastText ctaText }
-    lifestyleaudit { __typename eyebrow heading subtext products { __typename badge title price description features { __typename text } ctaText ctaUrl } }
     howwork { __typename heading steps { __typename title text } ctaText }
     philosophy { __typename heading col1p1 pullquote col1p2 col2p1 col2p2 }
     finalcta { __typename eyebrow heading body ctaText }
