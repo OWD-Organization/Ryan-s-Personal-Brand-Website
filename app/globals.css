@@ -1396,3 +1396,183 @@ body {
 .footer-social a:hover {
     color: #FAF8F5;
 }
+
+/* ---- Lifestyle Audit Section ---- */
+.audit-section {
+    background: #2C2C2A;
+    padding: 100px 40px;
+}
+
+.audit-header {
+    max-width: 760px;
+    margin: 0 auto 64px;
+    text-align: center;
+}
+
+.audit-eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #C4785A;
+    margin-bottom: 20px;
+}
+
+.audit-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #C4785A;
+    flex-shrink: 0;
+}
+
+.audit-heading {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 700;
+    color: #FAF8F5;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.audit-subtext {
+    font-size: 17px;
+    color: rgba(250,248,245,0.65);
+    line-height: 1.7;
+}
+
+.audit-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.audit-card {
+    background: rgba(250,248,245,0.05);
+    border: 1px solid rgba(250,248,245,0.1);
+    border-radius: 4px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s ease;
+}
+
+.audit-card:hover {
+    border-color: rgba(196,120,90,0.4);
+}
+
+.audit-card--featured {
+    background: rgba(196,120,90,0.08);
+    border-color: rgba(196,120,90,0.35);
+}
+
+.audit-card-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #C4785A;
+    margin-bottom: 20px;
+}
+
+.audit-card-body {
+    flex: 1;
+}
+
+.audit-card-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #FAF8F5;
+    letter-spacing: -0.3px;
+    margin-bottom: 10px;
+}
+
+.audit-card-price {
+    font-size: 42px;
+    font-weight: 800;
+    color: #C4785A;
+    letter-spacing: -1.5px;
+    line-height: 1;
+    margin-bottom: 18px;
+}
+
+.audit-card-desc {
+    font-size: 15px;
+    color: rgba(250,248,245,0.65);
+    line-height: 1.65;
+    margin-bottom: 28px;
+}
+
+.audit-card-features {
+    list-style: none;
+    margin-bottom: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.audit-card-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: rgba(250,248,245,0.8);
+    line-height: 1.5;
+}
+
+.audit-check {
+    color: #C4785A;
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.audit-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #C4785A;
+    color: #FAF8F5;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 14px 24px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+    margin-top: auto;
+}
+
+.audit-card-cta:hover {
+    background: #b36a4d;
+}
+
+.audit-card-cta svg {
+    width: 16px;
+    height: 16px;
+}
+
+@media (max-width: 768px) {
+    .audit-section {
+        padding: 72px 24px;
+    }
+
+    .audit-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .audit-card {
+        padding: 32px 24px;
+    }
+
+    .audit-card-price {
+        font-size: 36px;
+    }
+}
