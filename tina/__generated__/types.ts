@@ -219,6 +219,30 @@ export type PageForyou = {
   ctaText?: Maybe<Scalars['String']['output']>;
 };
 
+export type PageLifestyleauditProductsFeatures = {
+  __typename?: 'PageLifestyleauditProductsFeatures';
+  text?: Maybe<Scalars['String']['output']>;
+};
+
+export type PageLifestyleauditProducts = {
+  __typename?: 'PageLifestyleauditProducts';
+  badge?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  price?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  features?: Maybe<Array<Maybe<PageLifestyleauditProductsFeatures>>>;
+  ctaText?: Maybe<Scalars['String']['output']>;
+  ctaUrl?: Maybe<Scalars['String']['output']>;
+};
+
+export type PageLifestyleaudit = {
+  __typename?: 'PageLifestyleaudit';
+  eyebrow?: Maybe<Scalars['String']['output']>;
+  heading?: Maybe<Scalars['String']['output']>;
+  subtext?: Maybe<Scalars['String']['output']>;
+  products?: Maybe<Array<Maybe<PageLifestyleauditProducts>>>;
+};
+
 export type PageHowworkSteps = {
   __typename?: 'PageHowworkSteps';
   title?: Maybe<Scalars['String']['output']>;
@@ -257,6 +281,7 @@ export type Page = Node & Document & {
   perspective?: Maybe<PagePerspective>;
   mystory?: Maybe<PageMystory>;
   foryou?: Maybe<PageForyou>;
+  lifestyleaudit?: Maybe<PageLifestyleaudit>;
   howwork?: Maybe<PageHowwork>;
   philosophy?: Maybe<PagePhilosophy>;
   finalcta?: Maybe<PageFinalcta>;
@@ -318,6 +343,27 @@ export type PageForyouFilter = {
   ctaText?: InputMaybe<StringFilter>;
 };
 
+export type PageLifestyleauditProductsFeaturesFilter = {
+  text?: InputMaybe<StringFilter>;
+};
+
+export type PageLifestyleauditProductsFilter = {
+  badge?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  price?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  features?: InputMaybe<PageLifestyleauditProductsFeaturesFilter>;
+  ctaText?: InputMaybe<StringFilter>;
+  ctaUrl?: InputMaybe<StringFilter>;
+};
+
+export type PageLifestyleauditFilter = {
+  eyebrow?: InputMaybe<StringFilter>;
+  heading?: InputMaybe<StringFilter>;
+  subtext?: InputMaybe<StringFilter>;
+  products?: InputMaybe<PageLifestyleauditProductsFilter>;
+};
+
 export type PageHowworkStepsFilter = {
   title?: InputMaybe<StringFilter>;
   text?: InputMaybe<StringFilter>;
@@ -351,6 +397,7 @@ export type PageFilter = {
   perspective?: InputMaybe<PagePerspectiveFilter>;
   mystory?: InputMaybe<PageMystoryFilter>;
   foryou?: InputMaybe<PageForyouFilter>;
+  lifestyleaudit?: InputMaybe<PageLifestyleauditFilter>;
   howwork?: InputMaybe<PageHowworkFilter>;
   philosophy?: InputMaybe<PagePhilosophyFilter>;
   finalcta?: InputMaybe<PageFinalctaFilter>;
@@ -480,6 +527,27 @@ export type PageForyouMutation = {
   ctaText?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type PageLifestyleauditProductsFeaturesMutation = {
+  text?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PageLifestyleauditProductsMutation = {
+  badge?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  price?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  features?: InputMaybe<Array<InputMaybe<PageLifestyleauditProductsFeaturesMutation>>>;
+  ctaText?: InputMaybe<Scalars['String']['input']>;
+  ctaUrl?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PageLifestyleauditMutation = {
+  eyebrow?: InputMaybe<Scalars['String']['input']>;
+  heading?: InputMaybe<Scalars['String']['input']>;
+  subtext?: InputMaybe<Scalars['String']['input']>;
+  products?: InputMaybe<Array<InputMaybe<PageLifestyleauditProductsMutation>>>;
+};
+
 export type PageHowworkStepsMutation = {
   title?: InputMaybe<Scalars['String']['input']>;
   text?: InputMaybe<Scalars['String']['input']>;
@@ -513,19 +581,20 @@ export type PageMutation = {
   perspective?: InputMaybe<PagePerspectiveMutation>;
   mystory?: InputMaybe<PageMystoryMutation>;
   foryou?: InputMaybe<PageForyouMutation>;
+  lifestyleaudit?: InputMaybe<PageLifestyleauditMutation>;
   howwork?: InputMaybe<PageHowworkMutation>;
   philosophy?: InputMaybe<PagePhilosophyMutation>;
   finalcta?: InputMaybe<PageFinalctaMutation>;
 };
 
-export type PagePartsFragment = { __typename: 'Page', hero?: { __typename: 'PageHero', tagline?: string | null, headline?: string | null, ctaText?: string | null, ctaSecondaryText?: string | null } | null, about?: { __typename: 'PageAbout', eyebrow?: string | null, heading?: string | null, sub?: string | null } | null, perspective?: { __typename: 'PagePerspective', heading?: string | null, ctaText?: string | null, items?: Array<{ __typename: 'PagePerspectiveItems', text?: string | null } | null> | null } | null, mystory?: { __typename: 'PageMystory', heading?: string | null, bannerBody?: string | null, bannerCtaText?: string | null, timeline?: Array<{ __typename: 'PageMystoryTimeline', label?: string | null, text?: string | null } | null> | null } | null, foryou?: { __typename: 'PageForyou', heading?: string | null, contrastText?: string | null, ctaText?: string | null, items?: Array<{ __typename: 'PageForyouItems', text?: string | null } | null> | null } | null, howwork?: { __typename: 'PageHowwork', heading?: string | null, ctaText?: string | null, steps?: Array<{ __typename: 'PageHowworkSteps', title?: string | null, text?: string | null } | null> | null } | null, philosophy?: { __typename: 'PagePhilosophy', heading?: string | null, col1p1?: string | null, pullquote?: string | null, col1p2?: string | null, col2p1?: string | null, col2p2?: string | null } | null, finalcta?: { __typename: 'PageFinalcta', eyebrow?: string | null, heading?: string | null, body?: string | null, ctaText?: string | null } | null };
+export type PagePartsFragment = { __typename: 'Page', hero?: { __typename: 'PageHero', tagline?: string | null, headline?: string | null, ctaText?: string | null, ctaSecondaryText?: string | null } | null, about?: { __typename: 'PageAbout', eyebrow?: string | null, heading?: string | null, sub?: string | null } | null, perspective?: { __typename: 'PagePerspective', heading?: string | null, ctaText?: string | null, items?: Array<{ __typename: 'PagePerspectiveItems', text?: string | null } | null> | null } | null, mystory?: { __typename: 'PageMystory', heading?: string | null, bannerBody?: string | null, bannerCtaText?: string | null, timeline?: Array<{ __typename: 'PageMystoryTimeline', label?: string | null, text?: string | null } | null> | null } | null, foryou?: { __typename: 'PageForyou', heading?: string | null, contrastText?: string | null, ctaText?: string | null, items?: Array<{ __typename: 'PageForyouItems', text?: string | null } | null> | null } | null, lifestyleaudit?: { __typename: 'PageLifestyleaudit', eyebrow?: string | null, heading?: string | null, subtext?: string | null, products?: Array<{ __typename: 'PageLifestyleauditProducts', badge?: string | null, title?: string | null, price?: string | null, description?: string | null, ctaText?: string | null, ctaUrl?: string | null, features?: Array<{ __typename: 'PageLifestyleauditProductsFeatures', text?: string | null } | null> | null } | null> | null } | null, howwork?: { __typename: 'PageHowwork', heading?: string | null, ctaText?: string | null, steps?: Array<{ __typename: 'PageHowworkSteps', title?: string | null, text?: string | null } | null> | null } | null, philosophy?: { __typename: 'PagePhilosophy', heading?: string | null, col1p1?: string | null, pullquote?: string | null, col1p2?: string | null, col2p1?: string | null, col2p2?: string | null } | null, finalcta?: { __typename: 'PageFinalcta', eyebrow?: string | null, heading?: string | null, body?: string | null, ctaText?: string | null } | null };
 
 export type PageQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type PageQuery = { __typename?: 'Query', page: { __typename: 'Page', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'PageHero', tagline?: string | null, headline?: string | null, ctaText?: string | null, ctaSecondaryText?: string | null } | null, about?: { __typename: 'PageAbout', eyebrow?: string | null, heading?: string | null, sub?: string | null } | null, perspective?: { __typename: 'PagePerspective', heading?: string | null, ctaText?: string | null, items?: Array<{ __typename: 'PagePerspectiveItems', text?: string | null } | null> | null } | null, mystory?: { __typename: 'PageMystory', heading?: string | null, bannerBody?: string | null, bannerCtaText?: string | null, timeline?: Array<{ __typename: 'PageMystoryTimeline', label?: string | null, text?: string | null } | null> | null } | null, foryou?: { __typename: 'PageForyou', heading?: string | null, contrastText?: string | null, ctaText?: string | null, items?: Array<{ __typename: 'PageForyouItems', text?: string | null } | null> | null } | null, howwork?: { __typename: 'PageHowwork', heading?: string | null, ctaText?: string | null, steps?: Array<{ __typename: 'PageHowworkSteps', title?: string | null, text?: string | null } | null> | null } | null, philosophy?: { __typename: 'PagePhilosophy', heading?: string | null, col1p1?: string | null, pullquote?: string | null, col1p2?: string | null, col2p1?: string | null, col2p2?: string | null } | null, finalcta?: { __typename: 'PageFinalcta', eyebrow?: string | null, heading?: string | null, body?: string | null, ctaText?: string | null } | null } };
+export type PageQuery = { __typename?: 'Query', page: { __typename: 'Page', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'PageHero', tagline?: string | null, headline?: string | null, ctaText?: string | null, ctaSecondaryText?: string | null } | null, about?: { __typename: 'PageAbout', eyebrow?: string | null, heading?: string | null, sub?: string | null } | null, perspective?: { __typename: 'PagePerspective', heading?: string | null, ctaText?: string | null, items?: Array<{ __typename: 'PagePerspectiveItems', text?: string | null } | null> | null } | null, mystory?: { __typename: 'PageMystory', heading?: string | null, bannerBody?: string | null, bannerCtaText?: string | null, timeline?: Array<{ __typename: 'PageMystoryTimeline', label?: string | null, text?: string | null } | null> | null } | null, foryou?: { __typename: 'PageForyou', heading?: string | null, contrastText?: string | null, ctaText?: string | null, items?: Array<{ __typename: 'PageForyouItems', text?: string | null } | null> | null } | null, lifestyleaudit?: { __typename: 'PageLifestyleaudit', eyebrow?: string | null, heading?: string | null, subtext?: string | null, products?: Array<{ __typename: 'PageLifestyleauditProducts', badge?: string | null, title?: string | null, price?: string | null, description?: string | null, ctaText?: string | null, ctaUrl?: string | null, features?: Array<{ __typename: 'PageLifestyleauditProductsFeatures', text?: string | null } | null> | null } | null> | null } | null, howwork?: { __typename: 'PageHowwork', heading?: string | null, ctaText?: string | null, steps?: Array<{ __typename: 'PageHowworkSteps', title?: string | null, text?: string | null } | null> | null } | null, philosophy?: { __typename: 'PagePhilosophy', heading?: string | null, col1p1?: string | null, pullquote?: string | null, col1p2?: string | null, col2p1?: string | null, col2p2?: string | null } | null, finalcta?: { __typename: 'PageFinalcta', eyebrow?: string | null, heading?: string | null, body?: string | null, ctaText?: string | null } | null } };
 
 export type PageConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -537,7 +606,7 @@ export type PageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type PageConnectionQuery = { __typename?: 'Query', pageConnection: { __typename?: 'PageConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PageConnectionEdges', cursor: string, node?: { __typename: 'Page', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'PageHero', tagline?: string | null, headline?: string | null, ctaText?: string | null, ctaSecondaryText?: string | null } | null, about?: { __typename: 'PageAbout', eyebrow?: string | null, heading?: string | null, sub?: string | null } | null, perspective?: { __typename: 'PagePerspective', heading?: string | null, ctaText?: string | null, items?: Array<{ __typename: 'PagePerspectiveItems', text?: string | null } | null> | null } | null, mystory?: { __typename: 'PageMystory', heading?: string | null, bannerBody?: string | null, bannerCtaText?: string | null, timeline?: Array<{ __typename: 'PageMystoryTimeline', label?: string | null, text?: string | null } | null> | null } | null, foryou?: { __typename: 'PageForyou', heading?: string | null, contrastText?: string | null, ctaText?: string | null, items?: Array<{ __typename: 'PageForyouItems', text?: string | null } | null> | null } | null, howwork?: { __typename: 'PageHowwork', heading?: string | null, ctaText?: string | null, steps?: Array<{ __typename: 'PageHowworkSteps', title?: string | null, text?: string | null } | null> | null } | null, philosophy?: { __typename: 'PagePhilosophy', heading?: string | null, col1p1?: string | null, pullquote?: string | null, col1p2?: string | null, col2p1?: string | null, col2p2?: string | null } | null, finalcta?: { __typename: 'PageFinalcta', eyebrow?: string | null, heading?: string | null, body?: string | null, ctaText?: string | null } | null } | null } | null> | null } };
+export type PageConnectionQuery = { __typename?: 'Query', pageConnection: { __typename?: 'PageConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PageConnectionEdges', cursor: string, node?: { __typename: 'Page', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'PageHero', tagline?: string | null, headline?: string | null, ctaText?: string | null, ctaSecondaryText?: string | null } | null, about?: { __typename: 'PageAbout', eyebrow?: string | null, heading?: string | null, sub?: string | null } | null, perspective?: { __typename: 'PagePerspective', heading?: string | null, ctaText?: string | null, items?: Array<{ __typename: 'PagePerspectiveItems', text?: string | null } | null> | null } | null, mystory?: { __typename: 'PageMystory', heading?: string | null, bannerBody?: string | null, bannerCtaText?: string | null, timeline?: Array<{ __typename: 'PageMystoryTimeline', label?: string | null, text?: string | null } | null> | null } | null, foryou?: { __typename: 'PageForyou', heading?: string | null, contrastText?: string | null, ctaText?: string | null, items?: Array<{ __typename: 'PageForyouItems', text?: string | null } | null> | null } | null, lifestyleaudit?: { __typename: 'PageLifestyleaudit', eyebrow?: string | null, heading?: string | null, subtext?: string | null, products?: Array<{ __typename: 'PageLifestyleauditProducts', badge?: string | null, title?: string | null, price?: string | null, description?: string | null, ctaText?: string | null, ctaUrl?: string | null, features?: Array<{ __typename: 'PageLifestyleauditProductsFeatures', text?: string | null } | null> | null } | null> | null } | null, howwork?: { __typename: 'PageHowwork', heading?: string | null, ctaText?: string | null, steps?: Array<{ __typename: 'PageHowworkSteps', title?: string | null, text?: string | null } | null> | null } | null, philosophy?: { __typename: 'PagePhilosophy', heading?: string | null, col1p1?: string | null, pullquote?: string | null, col1p2?: string | null, col2p1?: string | null, col2p2?: string | null } | null, finalcta?: { __typename: 'PageFinalcta', eyebrow?: string | null, heading?: string | null, body?: string | null, ctaText?: string | null } | null } | null } | null> | null } };
 
 export const PagePartsFragmentDoc = gql`
     fragment PageParts on Page {
@@ -584,6 +653,25 @@ export const PagePartsFragmentDoc = gql`
     }
     contrastText
     ctaText
+  }
+  lifestyleaudit {
+    __typename
+    eyebrow
+    heading
+    subtext
+    products {
+      __typename
+      badge
+      title
+      price
+      description
+      features {
+        __typename
+        text
+      }
+      ctaText
+      ctaUrl
+    }
   }
   howwork {
     __typename

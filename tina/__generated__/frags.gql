@@ -43,6 +43,25 @@ fragment PageParts on Page {
     contrastText
     ctaText
   }
+  lifestyleaudit {
+    __typename
+    eyebrow
+    heading
+    subtext
+    products {
+      __typename
+      badge
+      title
+      price
+      description
+      features {
+        __typename
+        text
+      }
+      ctaText
+      ctaUrl
+    }
+  }
   howwork {
     __typename
     heading

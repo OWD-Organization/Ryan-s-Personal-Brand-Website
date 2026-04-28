@@ -114,6 +114,42 @@ var config_default = defineConfig({
               { type: "string", name: "ctaText", label: "CTA Text" }
             ]
           },
+          // Lifestyle Audit
+          {
+            type: "object",
+            name: "lifestyleaudit",
+            label: "Lifestyle Audit Section",
+            fields: [
+              { type: "string", name: "eyebrow", label: "Eyebrow" },
+              { type: "string", name: "heading", label: "Heading", ui: { component: "textarea" } },
+              { type: "string", name: "subtext", label: "Subtext", ui: { component: "textarea" } },
+              {
+                type: "object",
+                name: "products",
+                label: "Products",
+                list: true,
+                ui: { itemProps: (item) => ({ label: item?.title }) },
+                fields: [
+                  { type: "string", name: "badge", label: "Badge" },
+                  { type: "string", name: "title", label: "Title" },
+                  { type: "string", name: "price", label: "Price" },
+                  { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+                  {
+                    type: "object",
+                    name: "features",
+                    label: "Features",
+                    list: true,
+                    ui: { itemProps: (item) => ({ label: item?.text?.slice(0, 40) }) },
+                    fields: [
+                      { type: "string", name: "text", label: "Feature Text" }
+                    ]
+                  },
+                  { type: "string", name: "ctaText", label: "CTA Button Text" },
+                  { type: "string", name: "ctaUrl", label: "CTA URL" }
+                ]
+              }
+            ]
+          },
           // How I Work
           {
             type: "object",

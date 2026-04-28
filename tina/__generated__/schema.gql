@@ -133,6 +133,27 @@ type PageForyou {
   ctaText: String
 }
 
+type PageLifestyleauditProductsFeatures {
+  text: String
+}
+
+type PageLifestyleauditProducts {
+  badge: String
+  title: String
+  price: String
+  description: String
+  features: [PageLifestyleauditProductsFeatures]
+  ctaText: String
+  ctaUrl: String
+}
+
+type PageLifestyleaudit {
+  eyebrow: String
+  heading: String
+  subtext: String
+  products: [PageLifestyleauditProducts]
+}
+
 type PageHowworkSteps {
   title: String
   text: String
@@ -166,6 +187,7 @@ type Page implements Node & Document {
   perspective: PagePerspective
   mystory: PageMystory
   foryou: PageForyou
+  lifestyleaudit: PageLifestyleaudit
   howwork: PageHowwork
   philosophy: PagePhilosophy
   finalcta: PageFinalcta
@@ -227,6 +249,27 @@ input PageForyouFilter {
   ctaText: StringFilter
 }
 
+input PageLifestyleauditProductsFeaturesFilter {
+  text: StringFilter
+}
+
+input PageLifestyleauditProductsFilter {
+  badge: StringFilter
+  title: StringFilter
+  price: StringFilter
+  description: StringFilter
+  features: PageLifestyleauditProductsFeaturesFilter
+  ctaText: StringFilter
+  ctaUrl: StringFilter
+}
+
+input PageLifestyleauditFilter {
+  eyebrow: StringFilter
+  heading: StringFilter
+  subtext: StringFilter
+  products: PageLifestyleauditProductsFilter
+}
+
 input PageHowworkStepsFilter {
   title: StringFilter
   text: StringFilter
@@ -260,6 +303,7 @@ input PageFilter {
   perspective: PagePerspectiveFilter
   mystory: PageMystoryFilter
   foryou: PageForyouFilter
+  lifestyleaudit: PageLifestyleauditFilter
   howwork: PageHowworkFilter
   philosophy: PagePhilosophyFilter
   finalcta: PageFinalctaFilter
@@ -341,6 +385,27 @@ input PageForyouMutation {
   ctaText: String
 }
 
+input PageLifestyleauditProductsFeaturesMutation {
+  text: String
+}
+
+input PageLifestyleauditProductsMutation {
+  badge: String
+  title: String
+  price: String
+  description: String
+  features: [PageLifestyleauditProductsFeaturesMutation]
+  ctaText: String
+  ctaUrl: String
+}
+
+input PageLifestyleauditMutation {
+  eyebrow: String
+  heading: String
+  subtext: String
+  products: [PageLifestyleauditProductsMutation]
+}
+
 input PageHowworkStepsMutation {
   title: String
   text: String
@@ -374,6 +439,7 @@ input PageMutation {
   perspective: PagePerspectiveMutation
   mystory: PageMystoryMutation
   foryou: PageForyouMutation
+  lifestyleaudit: PageLifestyleauditMutation
   howwork: PageHowworkMutation
   philosophy: PagePhilosophyMutation
   finalcta: PageFinalctaMutation
