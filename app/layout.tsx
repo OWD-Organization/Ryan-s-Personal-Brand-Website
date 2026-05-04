@@ -6,13 +6,13 @@ import ChatTrigger from "@/components/ChatTrigger";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ryan-kearney.com"),
+  metadataBase: new URL("https://www.ryankearneyofficial.com"),
   title: "Ryan Kearney",
   description: "Build a Business That Supports the Life You Actually Want.",
   openGraph: {
     title: "Ryan Kearney",
     description: "Build a Business That Supports the Life You Actually Want.",
-    url: "https://ryan-kearney.com",
+    url: "https://www.ryankearneyofficial.com",
     siteName: "Ryan Kearney",
     images: [
       {
