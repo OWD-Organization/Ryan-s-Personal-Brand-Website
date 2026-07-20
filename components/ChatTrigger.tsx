@@ -11,6 +11,7 @@ const BUTTON_SELECTORS = [
   ".perspective-cta",
   ".banner-circle-btn",
   ".banner-cta-text",
+  ".js-chat-trigger",
 ].join(", ");
 
 function openChat() {

@@ -36,7 +36,9 @@ export default function LifestyleAudit({ data }: { data: LifestyleAuditData }) {
       </div>
 
       <div className="audit-cards">
-        {data.products.map((product, i) => (
+        {data.products.map((product, i) => {
+          const opensChat = !product.ctaUrl || product.ctaUrl === "#";
+          return (
           <div key={i} className={`audit-card ${i === 1 ? "audit-card--featured" : ""}`}>
             <div className="audit-card-badge" data-tina-field={tinaField(product, "badge")}>
               {product.badge}
@@ -62,7 +64,7 @@ export default function LifestyleAudit({ data }: { data: LifestyleAuditData }) {
             </div>
             <a
               href={product.ctaUrl || "#"}
-              className="audit-card-cta"
+              className={`audit-card-cta${opensChat ? " js-chat-trigger" : ""}`}
               data-tina-field={tinaField(product, "ctaText")}
             >
               {product.ctaText}
@@ -77,7 +79,8 @@ export default function LifestyleAudit({ data }: { data: LifestyleAuditData }) {
               </svg>
             </a>
           </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

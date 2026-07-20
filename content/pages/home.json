@@ -81,7 +81,7 @@
       {
         "badge": "SELF-GUIDED",
         "title": "Lifestyle Audit Quiz",
-        "price": "$50",
+        "price": "Free",
         "description": "A structured quiz that walks you through the key areas of your life and business. You'll get a personalized breakdown of what's aligned, what's off, and where to focus first.",
         "features": [
           { "text": "Covers business, income, lifestyle & habits" },
@@ -89,8 +89,8 @@
           { "text": "Actionable next steps included" },
           { "text": "Complete it in under 20 minutes" }
         ],
-        "ctaText": "Take the Quiz — $50",
-        "ctaUrl": "#"
+        "ctaText": "Take the Quiz",
+        "ctaUrl": "/lifestyle-audit-quiz.html"
       },
       {
         "badge": "LIVE WITH RYAN",
