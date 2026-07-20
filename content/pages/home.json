@@ -73,6 +73,57 @@
     "contrastText": "This is not a mastermind for established business owners. This is not a course on how to enter the marketing industry. This is personal, experience-driven coaching for men who want to build a business that fits the life they're designing.",
     "ctaText": "Send Ryan a Message"
   },
+  "lifestyleaudit": {
+    "eyebrow": "START HERE",
+    "heading": "Get Clarity Before You Commit",
+    "subtext": "Not sure where to start? These audits are designed to give you honest, direct feedback on where you are and what needs to change — before you invest in anything bigger.",
+    "products": [
+      {
+        "badge": "SELF-GUIDED",
+        "title": "Lifestyle Audit Quiz",
+        "price": "Free",
+        "description": "A structured quiz that walks you through the key areas of your life and business. You'll get a personalized breakdown of what's aligned, what's off, and where to focus first.",
+        "features": [
+          {
+            "text": "Covers business, income, lifestyle & habits"
+          },
+          {
+            "text": "Instant personalized results"
+          },
+          {
+            "text": "Actionable next steps included"
+          },
+          {
+            "text": "Complete it in under 20 minutes"
+          }
+        ],
+        "ctaText": "Take the Quiz",
+        "ctaUrl": "/lifestyle-audit-quiz.html"
+      },
+      {
+        "badge": "LIVE WITH RYAN",
+        "title": "Live Lifestyle Audit",
+        "price": "$500",
+        "description": "A one-on-one session with Ryan. We go deep on your current situation, identify what's holding you back, and walk away with a real plan tailored to where you want to go.",
+        "features": [
+          {
+            "text": "60-minute live video call with Ryan"
+          },
+          {
+            "text": "Full review of your business & lifestyle goals"
+          },
+          {
+            "text": "Custom roadmap delivered after the call"
+          },
+          {
+            "text": "Recording included"
+          }
+        ],
+        "ctaText": "Book a Live Audit — $500",
+        "ctaUrl": "#"
+      }
+    ]
+  },
   "howwork": {
     "heading": "Three Steps to Start Building",
     "steps": [
