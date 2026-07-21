@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quality of Life Reset | Ryan Kearney</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  :root {
+    --terra: #C4785A;
+    --terra-dark: #A85E42;
+    --terra-bg: #f6e9e2;
+    --cream: #FAF8F5;
+    --cream-alt: #f1ede7;
+    --ink: #1A1A1A;
+    --charcoal: #2C2C2A;
+    --charcoal-soft: #4a4a47;
+    --card: #ffffff;
+    --line: #e6e1d9;
+    --line-strong: #d3cdc2;
+    --text: #1A1A1A;
+    --text-soft: #555555;
+    --text-faint: #9c988f;
+    --sage: #8FA67E;
+    --ok: #64794f;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 40px 22px 90px; }
+  .eyebrow {
+    display: flex; align-items: center; gap: 9px;
+    font-size: 12px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: .14em; color: var(--text-soft); margin-bottom: 16px;
+  }
+  .eyebrow:before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--terra); flex-shrink: 0; }
+  h1 { font-size: 44px; font-weight: 500; color: var(--ink); line-height: 1.1; letter-spacing: -0.025em; margin-bottom: 18px; }
+  h2 { font-size: 27px; font-weight: 500; color: var(--ink); line-height: 1.2; letter-spacing: -0.015em; margin-bottom: 14px; }
+  h3 { font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+  .lede { font-size: 19px; color: var(--charcoal-soft); margin-bottom: 30px; line-height: 1.5; }
+  p { font-size: 16px; color: var(--charcoal-soft); margin-bottom: 16px; }
+  .muted { color: var(--text-soft); }
+  .small { font-size: 14px; }
+  .section { margin: 46px 0; }
+  .price-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px; }
+  .price { font-size: 40px; font-weight: 600; color: var(--ink); letter-spacing: -0.02em; }
+  .price-note { font-size: 15px; color: var(--text-soft); }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: var(--terra); color: var(--cream); border: none;
+    font-size: 16px; font-weight: 600; letter-spacing: .5px; font-family: inherit;
+    padding: 15px 30px; border-radius: 2px; cursor: pointer;
+    transition: background .15s, transform .05s; text-decoration: none;
+  }
+  .btn:hover { background: var(--terra-dark); }
+  .btn:active { transform: scale(.99); }
+  .btn:disabled { background: var(--line-strong); color: #fff; cursor: not-allowed; }
+  .btn .arr { transition: transform .15s; }
+  .btn:hover .arr { transform: translateX(3px); }
+  .card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 8px; padding: 30px 28px;
+  }
+  ul.check { list-style: none; margin: 8px 0; }
+  ul.check li { padding: 9px 0 9px 30px; position: relative; font-size: 16px; color: var(--charcoal); border-bottom: 1px solid var(--line); }
+  ul.check li:last-child { border-bottom: none; }
+  ul.check li:before { content: "\2713"; position: absolute; left: 0; color: var(--terra); font-weight: 700; }
+  .steps { display: grid; gap: 16px; margin-top: 18px; }
+  .step { display: flex; gap: 16px; }
+  .step .n {
+    flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%;
+    background: var(--terra-bg); color: var(--terra-dark);
+    font-weight: 600; font-size: 15px; display: flex; align-items: center; justify-content: center;
+  }
+  .who { background: var(--charcoal); border-radius: 8px; padding: 30px 28px; color: var(--cream); }
+  .who h2 { color: var(--cream); }
+  .who p { color: #c9c6c0; }
+  .who ul.check li { color: #e8e6e2; border-bottom-color: rgba(250,248,245,.12); }
+  .who ul.check li:before { color: var(--sage); }
+  .booking { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 32px 28px; }
+  .field { margin-bottom: 18px; }
+  .field label { display: block; font-size: 14px; font-weight: 500; color: var(--text-soft); margin-bottom: 6px; }
+  .field input {
+    width: 100%; border: 1px solid var(--line-strong); border-radius: 4px;
+    padding: 13px 15px; font-size: 16px; font-family: inherit; color: var(--text); background: #fdfcfa;
+  }
+  .field input:focus { outline: none; border-color: var(--terra); box-shadow: 0 0 0 3px var(--terra-bg); }
+  .field textarea {
+    width: 100%; min-height: 80px; resize: vertical; border: 1px solid var(--line-strong); border-radius: 4px;
+    padding: 13px 15px; font-size: 16px; font-family: inherit; line-height: 1.5; color: var(--text); background: #fdfcfa;
+  }
+  .field textarea:focus { outline: none; border-color: var(--terra); box-shadow: 0 0 0 3px var(--terra-bg); }
+  .hint { font-size: 13px; color: var(--text-faint); margin-top: 10px; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 520px){ .row2 { grid-template-columns: 1fr; } h1 { font-size: 34px; } h2 { font-size: 23px; } }
+  #cal-stage { display: none; }
+  #cal-stage.show { display: block; }
+  #form-stage.hide { display: none; }
+  .calnote { background: var(--terra-bg); border-left: 3px solid var(--terra); border-radius: 4px; padding: 14px 16px; margin-bottom: 20px; font-size: 15px; color: var(--charcoal-soft); }
+  iframe.cal { width: 100%; min-height: 720px; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+  .fallback-btn { margin-top: 16px; }
+  .divider { height: 1px; background: var(--line); margin: 40px 0; }
+  .footer { text-align: center; margin-top: 20px; }
+  .footer a { color: var(--terra); text-decoration: none; font-weight: 500; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">Live with Ryan</div>
+  <h1>The Quality of Life Reset</h1>
+  <p class="lede">Sixty minutes, one on one, on the life and the business you're actually building. No pitch, no template. We find what's holding you back and you leave with a real plan.</p>
+
+  <div class="price-row">
+    <span class="price">$200</span>
+    <span class="price-note">60-minute live video call, recording included</span>
+  </div>
+  <a class="btn" href="#book" id="top-cta">Book Your Reset <span class="arr">&rarr;</span></a>
+
+  <div class="section">
+    <h2>What we actually do on the call</h2>
+    <p>Most people start with tactics and hope a life falls out of them. We work the other way. We start with the life you want, then reverse-engineer the business that supports it. In one focused hour we go deep on where you are, name what's really in the way, and map the next moves that matter.</p>
+    <div class="card">
+      <ul class="check">
+        <li>A full review of your current career or business goals and quality of life</li>
+        <li>An honest read on what's aligned, what's off, and what's costing you</li>
+        <li>A custom roadmap delivered after the call, built around your situation</li>
+        <li>The recording, so you can revisit everything we covered</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section who">
+    <h2>This is for you if</h2>
+    <ul class="check">
+      <li>You've done everything you were told to and still feel stuck</li>
+      <li>You want consistent freedom, not a one-time spike</li>
+      <li>You're done consuming content that never adds up to a path</li>
+      <li>You care about your health, relationships, and quality of life as much as your income</li>
+    </ul>
+    <p style="margin-top:16px; margin-bottom:0;">If you want someone to hype you up, this isn't it. If you want a direct, honest hour with someone who has built the thing, book it.</p>
+  </div>
+
+  <div class="section">
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><div><h3>Tell me where you are</h3><p style="margin:0;">Fill in your details below and a couple lines on what you want out of the call. Takes two minutes.</p></div></div>
+      <div class="step"><div class="n">2</div><div><h3>Pick your time and reserve it</h3><p style="margin:0;">Choose a slot on my calendar and lock it in. Your spot is confirmed once payment is complete.</p></div></div>
+      <div class="step"><div class="n">3</div><div><h3>We go to work</h3><p style="margin:0;">We meet for the hour, then I send your custom roadmap and the recording after.</p></div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section" id="book">
+    <div class="eyebrow">Book Your Reset</div>
+
+    <div class="booking" id="form-stage">
+      <h2 style="margin-bottom:8px;">Start here</h2>
+      <p style="margin-bottom:22px;">Your details first, so if anything interrupts your booking I know how to reach you. Then you'll pick your time and pay to lock it in.</p>
+      <div class="row2">
+        <div class="field">
+          <label for="f-name">First name</label>
+          <input id="f-name" type="text" autocomplete="given-name" placeholder="Your first name">
+        </div>
+        <div class="field">
+          <label for="f-phone">Phone</label>
+          <input id="f-phone" type="tel" autocomplete="tel" placeholder="(555) 555-5555">
+        </div>
+      </div>
+      <div class="field">
+        <label for="f-email">Email</label>
+        <input id="f-email" type="email" autocomplete="email" placeholder="you@example.com">
+      </div>
+      <div class="field">
+        <label for="f-goal">In a line or two, what do you want out of this hour? (optional)</label>
+        <textarea id="f-goal" placeholder="The one thing you'd want to walk away with..."></textarea>
+      </div>
+      <div class="footer-actions">
+        <button class="btn" id="f-next" disabled>Continue to calendar <span class="arr">&rarr;</span></button>
+      </div>
+      <div class="hint">Your info is saved to Ryan's system when you continue, so your spot can be held even if you don't finish paying right away.</div>
+    </div>
+
+    <div id="cal-stage">
+      <div class="calnote">Got it, <span id="cal-name">your details are in</span>. Pick a time below and complete payment to lock in your reset.</div>
+      <div id="cal-embed"></div>
+      <a class="btn fallback-btn" id="cal-fallback" href="#" target="_blank" rel="noopener" style="display:none;">Open the booking calendar <span class="arr">&rarr;</span></a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p class="small muted" style="margin-bottom:6px;">Questions before you book?</p>
+    <a href="sms:+18449314624">Text (844) 931-4624</a> &nbsp;·&nbsp; <a href="https://ig.me/m/ryankearneyofficial" target="_blank" rel="noopener">DM @ryankearneyofficial</a>
+  </div>
+
+</div>
+
+<script>
+// ============================================================
+//  SETTINGS — Ryan, fill these two in.
+// ============================================================
+// 1) Your GoHighLevel booking calendar URL (the one with the $500 payment attached).
+//    Paste the calendar's share/scheduling link between the quotes.
+const GHL_CALENDAR_URL = "https://api.leadconnectorhq.com/widget/booking/Iq49JqVkZbqWsOA5G8ho";
+
+// 2) Reusing the same inbound webhook as the quiz. Leave as-is unless it changes.
+const GHL_WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/Xa2QtabaSXmZgaRRhf5C/webhook-trigger/9b4ed390-1b86-4096-8060-f8c506abf2d8";
+// ============================================================
+
+const nameEl = document.getElementById("f-name");
+const phoneEl = document.getElementById("f-phone");
+const emailEl = document.getElementById("f-email");
+const goalEl = document.getElementById("f-goal");
+const nextBtn = document.getElementById("f-next");
+
+const validEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim());
+const validPhone = v => v.replace(/\D/g,"").length >= 10;
+function check(){
+  nextBtn.disabled = !(nameEl.value.trim().length >= 2 && validEmail(emailEl.value) && validPhone(phoneEl.value));
+}
+[nameEl, phoneEl, emailEl].forEach(el => el.addEventListener("input", check));
+
+function sendToGHL(contact){
+  if(!GHL_WEBHOOK_URL) return Promise.resolve();
+  const payload = {
+    source: "Quality of Life Reset Page",
+    submission_type: "reset_intake",
+    lead_type: "quality-of-life-reset",
+    reset_intake: true,
+    completed_at: new Date().toISOString(),
+    first_name: contact.first_name,
+    email: contact.email,
+    phone: contact.phone,
+    results_text: "QUALITY OF LIFE RESET INTAKE ($200)\n\nName: " + contact.first_name
+      + "\nEmail: " + contact.email + "\nPhone: " + contact.phone
+      + "\n\nWhat they want from the call:\n" + (contact.goal || "(not provided)")
+  };
+  return fetch(GHL_WEBHOOK_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  }).catch(()=>{ /* never block booking on a network hiccup */ });
+}
+
+function showCalendar(firstName){
+  document.getElementById("form-stage").classList.add("hide");
+  const stage = document.getElementById("cal-stage");
+  stage.classList.add("show");
+  document.getElementById("cal-name").textContent = firstName + ", you're in";
+  const embed = document.getElementById("cal-embed");
+  const fallback = document.getElementById("cal-fallback");
+  if(GHL_CALENDAR_URL){
+    const sep = GHL_CALENDAR_URL.includes("?") ? "&" : "?";
+    const prefilled = GHL_CALENDAR_URL + sep
+      + "first_name=" + encodeURIComponent(firstName)
+      + "&email=" + encodeURIComponent(emailEl.value.trim())
+      + "&phone=" + encodeURIComponent(phoneEl.value.trim());
+    const iframe = document.createElement("iframe");
+    iframe.className = "cal";
+    iframe.src = prefilled;
+    iframe.title = "Book your Quality of Life Reset";
+    embed.appendChild(iframe);
+    fallback.href = prefilled;
+    fallback.style.display = "inline-flex";
+  } else {
+    embed.innerHTML = '<div class="calnote" style="border-color:var(--terra-dark);">Calendar link not set yet. Add your GHL booking URL in the page settings to enable booking here.</div>';
+  }
+  stage.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+nextBtn.onclick = ()=>{
+  const contact = {
+    first_name: nameEl.value.trim(),
+    email: emailEl.value.trim(),
+    phone: phoneEl.value.trim(),
+    goal: goalEl.value.trim()
+  };
+  nextBtn.disabled = true;
+  nextBtn.textContent = "One second...";
+  sendToGHL(contact).finally(()=> showCalendar(contact.first_name));
+};
+
+document.getElementById("top-cta").addEventListener("click", (e)=>{
+  e.preventDefault();
+  document.getElementById("book").scrollIntoView({ behavior: "smooth", block: "start" });
+  setTimeout(()=> nameEl && nameEl.focus(), 500);
+});
+</script>
+</body>
+</html>
