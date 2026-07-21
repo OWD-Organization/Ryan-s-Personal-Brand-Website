@@ -81,8 +81,8 @@
       {
         "badge": "SELF-GUIDED",
         "title": "The Quality of Life Audit — Free",
-        "price": "Free",
-        "description": "A structured quiz that walks you through the key areas of your life and business. You'll get a personalized breakdown of what's aligned, what's off, and where to focus first.",
+        "price": "This Month $0",
+        "description": "A guided quiz that walks you through the eight areas of the Life Wheel: health, relationships, career, finances, personal growth, fun, environment, and contribution. You'll get an honest breakdown of what's aligned, what's off, and where to focus first.\n",
         "features": [
           {
             "text": "Covers business, income, lifestyle & habits"
@@ -91,7 +91,7 @@
             "text": "Instant personalized results"
           },
           {
-            "text": "Actionable next steps included"
+            "text": "Actionable next steps"
           },
           {
             "text": "Complete it in under 20 minutes"
